@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/card-main-data.css">
+    <link rel="stylesheet" href="./css/card-more-data.css">
+    <title>Widget Of Places</title>
+</head>
+<body>
+    <!-- weather -->
+    <div class="card-weather">
+        <div class="search">
+            <input type="text" class="search-bar" placeholder="Search City or Place...">
+            <!-- <button class="search-btn"><i class="fas fa-search"></i></button> -->
+        </div>
+        <!-- weather data starts here -->
+        <div class="data">
+            <h2 class="city"></h2>            
+            <h1 class="temp"></h1>
+            <img src="" alt="" class="icon">
+            <!-- tiny weather details -->
+            <div class="details">
+                <div class ="more-menu">
+                    <p class= "weather"></p>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <p class ="humidity"></p>
+                <p class ="wind-speed"></p>
+            </div>
+        </div>    
+        <!-- after more details button is pressed -->
+        <div class="more-details">
+            <i class="far fa-times-circle"></i>
+            <h2 class="other-city"></h2>
+            <div class="position">
+                <h3>Position</h3>
+                <p class="lat"></p>
+                <p class="long"></p>
+            </div>
+            <div class="temp-details">
+                <h3>Temperature</h3>
+                <p class="current-temp"></p>
+                <p class="feels"></p>
+                <p class="min"></p>
+                <p class="max"></p>
+            </div>
+            <div class="wind-details">
+                <h3>Wind</h3>
+                <p class="speed">/p>
+                <p class="deg"></p>
+            </div>
+            <div class="Others-details">
+                <h3>Others</h3>
+                <p class="vis"></p>
+                <p class="press"></p>
+                <p class="other-humid"></p>
+                <p class="country"></p>
+            </div>
+        </div>        
+    </div>    
+    <script type="module" src="./javascript/main.js"></script>
+    <script src="./javascript/api.js"></script>
+</body>
+</html>
