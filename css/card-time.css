@@ -3,11 +3,10 @@
     padding: 2rem;
     width: 100%;
     max-width: 500px;
-    color: white;
     border-radius: 20px;
     position: relative;
     z-index: 10;
-    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4)
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4);
 }
 .time-more-details > .details-btn-time{
     color: white;

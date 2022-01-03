@@ -1,5 +1,6 @@
 *{
     font-family: 'Open Sans', sans-serif;
+    transition: 0.5s ease-in-out;
 }
 
 body{    
@@ -10,6 +11,7 @@ body{
     align-items:center;
     height:100vh;
     background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url(https://source.unsplash.com/1600x900/?landscape);
+    overflow-y: scroll;
     background-size: cover;
 }
 h1,h3{
@@ -27,8 +29,10 @@ html{
 
 .content{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 60%;
+    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 70%;
+    height: 80%;
     justify-items: center;
     gap: 5rem;
 }
@@ -59,4 +63,14 @@ html{
     100%{
         transform: rotate(0deg);
     }
+}
+
+.light-mode{
+    background-color:rgb(255, 255, 255,0.9);
+    color: black;
+}
+
+.make-visible-more-details{
+    z-index:20 !important;
+    opacity:1 !important
 }

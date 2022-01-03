@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="./css/card-more-data.css">
     <link rel="stylesheet" href="./css/card-time.css">
     <link rel="stylesheet" href="./css/card-time-more.css">
-    <title>Widget Of Places</title>
+    <link rel="stylesheet" href="./css/options.css">
+    <title>Ultima Widget</title>
 </head>
 <body>
     <div class="content">
         <!-- weather -->
-        <div class="card-weather">
+        <section class="card-weather card" style="color: white">
             <div class="search">
                 <input type="text" class="search-bar" placeholder="Search City or Place...">
                 <!-- <button class="search-btn"><i class="fas fa-search"></i></button> -->
@@ -41,7 +42,7 @@
                 </div>
             </div>    
             <!-- after more details button is pressed -->
-            <div class="more-details">
+            <div class="more-details card" style="color: white">
                 <i class="far fa-times-circle back-to-main-weather"></i>
                 <h2 class="other-city"></h2>
                 <div class="position">
@@ -69,9 +70,9 @@
                     <p class="country"></p>
                 </div>
             </div>        
-        </div>            
+        </section>            
         <!-- current time -->
-        <div class="card-time">
+        <section class="card-time card" style="color: white">
             <h2>Time Data</h2>
             <h2>Current Time</h2>
             <h2 class="current-time"></h2>                
@@ -84,7 +85,7 @@
                 <p class="zone"></p>            
                 <p class="offset"></p>                
             </div>
-            <div class="more-details-time">
+            <div class="more-details-time card" style="color: white">
                 <i class="far fa-times-circle back-to-main-time"></i>
                 <div class="country-detail">
                     <h3>Country</h3>
@@ -99,7 +100,48 @@
                     <p class="timestamp"></p>
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- site Option section -->
+        <section class="site-option card" style="color: white">                
+            <h2>Widget Style</h2>
+            <div class="option-inner card" style="color: white">
+                <!-- dark/light mode, text transparent -->
+                <div class="display-style">
+                    <p>Display Style:</p>
+                    <div class="toggle-btn toggle-display">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <div class="inner-circle"></div>
+                    </div>
+                </div>
+                <div class="text-transparent">
+                    <p>Transparent Text:</p>
+                    <div>
+                        <div class="toggle-btn toggle-transparent">
+                            <p>A</p>
+                            <p>A</p>
+                            <div class="inner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outer-spacing">
+                    <p>Outer Spacing: </p>
+                    <input type="range" min="0" max="100">
+                </div>
+                <div class="inner-spacing">
+                    <p>Inner Spacing: </p>
+                    <input type="range" min="0" max="100">
+                </div>
+                <div class="font-sizing">
+                    <p>Font Size: </p>
+                    <input type="range" min="0" max="100">
+                </div>
+                <div class="font-type">
+                    <p>Font Family: </p>
+                    <input type="text" placeholder="Enter a font family..." class="input-font-type">
+                </div>
+            </div>
+        </section>
     </div>
     <div class="footer">
         <p >Made By Vallen With Love </p>        
@@ -107,5 +149,6 @@
 
     <script type="module" src="./javascript/main.js"></script>
     <script src="./javascript/api.js"></script>
+    <script src="./javascript/options.js"></script>
 </body>
 </html>

@@ -8,12 +8,10 @@
     padding-right: 10px;
     min-width: 150px;
     max-width: 500px;
-    color: white;
     border-radius: 25px;
     opacity: 0;
     z-index: -1;
     transition: 0.4s ease;
-
 }
 
 .more-details p{

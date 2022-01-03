@@ -29,11 +29,11 @@ const weatherInteraction = function(){
     })
     const moreDetail = document.querySelector(".more-details")
     document.querySelector(".details-btn-weather").addEventListener("click",function(){
-        moreDetail.setAttribute("style","opacity:1; z-index: 20")
+        moreDetail.classList.toggle("make-visible-more-details")
     })
     // close more weather details menu buttons
     document.querySelector(".back-to-main-weather").addEventListener("click",function(){
-        moreDetail.setAttribute("style","opacity:0; z-index:-10")
+        moreDetail.classList.toggle("make-visible-more-details")
     })
 
     // footer shake
@@ -53,12 +53,12 @@ const timeInteraction = function(){
 
     const moreDetailTime = document.querySelector(".more-details-time")
     document.querySelector(".details-btn-time").addEventListener("click",function(){
-        moreDetailTime.setAttribute("style","opacity:1; z-index: 20")
+        moreDetailTime.classList.toggle("make-visible-more-details")
     })
 
     // close more time details menu buttons
     document.querySelector(".back-to-main-time").addEventListener("click",function(){
-        moreDetailTime.setAttribute("style","opacity:0; z-index:-10")
+        moreDetailTime.classList.toggle("make-visible-more-details")
     })
 }
 
