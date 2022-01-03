@@ -1,0 +1,74 @@
+.card-time{
+    background-color:rgba(8, 8, 8, 0.85);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4)
+}
+.time-more-details > .details-btn-time{
+    color: white;
+    border-radius: 50px;
+    background-color: rgba(85, 85, 85, 0.2);
+    padding: 0.375rem 0.75rem;
+    align-self: center;
+    cursor: pointer;
+    opacity:0;
+    transition: 0.2s ease-in-out
+}
+.time-more-details > .details-btn-time:hover{
+    background-color: rgba(85, 85, 85, 0.5);
+}
+
+.card-time >h2:first-child{
+    font-size: 1rem;
+    border-radius:20px;
+    color: #999999;
+    background-color: rgba(85, 85, 85, 0.2);
+    padding: 0.375rem 1rem;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+}
+/* .card-time > h2:nth-child(2){
+} */
+
+.current-time{
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: .375rem;
+}
+.date{
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.time-more-details{
+    display: flex;
+    justify-content: space-between;
+}
+.timezone,.offset,.zone{
+    font-weight: 300;
+}
+
+.details-btn-time{
+    color: white;
+    border-radius: 50px;
+    background-color: rgba(85, 85, 85, 0.2);
+    padding: 0.375rem 0.75rem;
+    align-self: center;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.2s ease-in-out
+}
+
+.details-btn-time:hover{
+    background-color: rgba(85, 85, 85, 0.5);
+}
+.zone{
+    margin-bottom: 0.375rem;
+}

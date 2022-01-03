@@ -18,3 +18,45 @@ h1,h3{
 p{
     margin: 0;
 }
+
+html{
+    scrollbar-color:white rgba(8, 8, 8, 1);
+    ;    
+    scrollbar-width: thin;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    justify-items: center;
+    gap: 5rem;
+}
+
+.footer{
+    display: grid;
+    place-items: end center;
+    color: white;
+    bottom: 5%;
+    font-weight: 300;
+    font-size: 0.7rem;
+    z-index: 30;
+    position: absolute;
+    height: 60px;
+    cursor: default;
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(-5deg);
+    }
+    33.333%{
+        transform: rotate(5deg);
+    }
+    66.666%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
