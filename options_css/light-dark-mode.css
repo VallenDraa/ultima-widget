@@ -1,0 +1,31 @@
+/* light/dark mode settings */
+.light-mode-outer{
+    background-color:rgb(255, 255, 255,0.9) !important;
+    color: black !important;
+}
+.light-mode-inner{
+    color: black!important;
+    background-color: #f0f0f1!important;
+}
+/* for scrollbar */
+.scroll-bar-dark-mode{
+    scrollbar-color:white #161616;
+}
+.scroll-bar-light-mode{
+    scrollbar-color: #999999 #f0f0f1!important;
+}
+/* for the x button in more detals */
+.light-mode-back-btn{
+    color: white !important;
+    background-color: rgba(85, 85, 85, 0.2) !important;
+}
+.light-mode-back-btn:hover{
+    background-color:rgba(85, 85, 85, 0.5)!important;
+}
+/* for input text */
+.input-text-light-mode{
+    color: #999999 !important;
+}
+.input-text-light-mode:focus{
+    color:white !important;
+}

@@ -1,5 +1,6 @@
 .card-weather{
     background-color:rgba(8, 8, 8, 0.85);
+    color: white;
     padding: 2rem;
     width: 100%;
     max-width: 500px;

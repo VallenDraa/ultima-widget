@@ -1,6 +1,5 @@
 *{
     font-family: 'Open Sans', sans-serif;
-    transition: 0.5s ease-in-out;
 }
 
 body{    
@@ -21,11 +20,7 @@ p{
     margin: 0;
 }
 
-html{
-    scrollbar-color:white rgba(8, 8, 8, 1);
-    ;    
-    scrollbar-width: thin;
-}
+
 
 .content{
     display: grid;
@@ -63,13 +58,8 @@ html{
     100%{
         transform: rotate(0deg);
     }
-}
 
-.light-mode{
-    background-color:rgb(255, 255, 255,0.9);
-    color: black;
 }
-
 .make-visible-more-details{
     z-index:20 !important;
     opacity:1 !important

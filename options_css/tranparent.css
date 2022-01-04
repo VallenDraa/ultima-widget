@@ -1,0 +1,9 @@
+.transparent-dark{
+    mix-blend-mode: multiply !important;
+}
+.transparent-light{
+    mix-blend-mode: screen !important;
+}
+.lighten-bg{
+    background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(https://source.unsplash.com/1600x900/?landscape);
+}

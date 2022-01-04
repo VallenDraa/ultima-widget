@@ -13,15 +13,19 @@
     <link rel="stylesheet" href="./css/card-more-data.css">
     <link rel="stylesheet" href="./css/card-time.css">
     <link rel="stylesheet" href="./css/card-time-more.css">
-    <link rel="stylesheet" href="./css/options.css">
+    <link rel="stylesheet" href="./options_css/options.css">
+    <link rel="stylesheet" href="./options_css/light-dark-mode.css">
+    <link rel="stylesheet" href="./options_css/tranparent.css">
+    <link rel="stylesheet" href="./options_css/option-menu-assets/sliderbar.css">
+    <link rel="stylesheet" href="./options_css/option-menu-assets/btn-toggle.css">
     <title>Ultima Widget</title>
 </head>
-<body>
+<body class="scroll-bar-dark-mode">
     <div class="content">
         <!-- weather -->
-        <section class="card-weather card" style="color: white">
+        <section class="card-weather card">
             <div class="search">
-                <input type="text" class="search-bar" placeholder="Search City or Place...">
+                <input type="text" class="search-bar input-text" placeholder="Search City or Place...">
                 <!-- <button class="search-btn"><i class="fas fa-search"></i></button> -->
             </div>
             <!-- weather data starts here -->
@@ -42,8 +46,8 @@
                 </div>
             </div>    
             <!-- after more details button is pressed -->
-            <div class="more-details card" style="color: white">
-                <i class="far fa-times-circle back-to-main-weather"></i>
+            <div class="more-details card-inner">
+                <i class="far fa-times back-to-main-weather"></i>
                 <h2 class="other-city"></h2>
                 <div class="position">
                     <h3>Position</h3>
@@ -72,7 +76,7 @@
             </div>        
         </section>            
         <!-- current time -->
-        <section class="card-time card" style="color: white">
+        <section class="card-time card">
             <h2>Time Data</h2>
             <h2>Current Time</h2>
             <h2 class="current-time"></h2>                
@@ -85,8 +89,8 @@
                 <p class="zone"></p>            
                 <p class="offset"></p>                
             </div>
-            <div class="more-details-time card" style="color: white">
-                <i class="far fa-times-circle back-to-main-time"></i>
+            <div class="more-details-time card-inner">
+                <i class="far fa-times back-to-main-time"></i>
                 <div class="country-detail">
                     <h3>Country</h3>
                     <p class="country-code"></p>
@@ -102,9 +106,9 @@
             </div>
         </section>
         <!-- site Option section -->
-        <section class="site-option card" style="color: white">                
+        <section class="site-option card">                
             <h2>Widget Style</h2>
-            <div class="option-inner card" style="color: white">
+            <div class="option-inner card-inner">
                 <!-- dark/light mode, text transparent -->
                 <div class="display-style">
                     <p>Display Style:</p>
@@ -114,31 +118,43 @@
                         <div class="inner-circle"></div>
                     </div>
                 </div>
-                <div class="text-transparent">
-                    <p>Transparent Text:</p>
+                <div class="text-transparent-opt">
+                    <p>Glass Effect:</p>
                     <div>
                         <div class="toggle-btn toggle-transparent">
-                            <p>A</p>
-                            <p>A</p>
+                            <p>on</p>
+                            <p>off</p>
                             <div class="inner-circle"></div>
                         </div>
                     </div>
                 </div>
                 <div class="outer-spacing">
                     <p>Outer Spacing: </p>
-                    <input type="range" min="0" max="100">
+                    <div class="slider">
+                        <p>0</p>
+                        <input type="range" min="0" max="100" class="opt-range">
+                        <p>100</p>
+                    </div>
                 </div>
                 <div class="inner-spacing">
                     <p>Inner Spacing: </p>
-                    <input type="range" min="0" max="100">
+                    <div class="slider">
+                        <p>0</p>
+                        <input type="range" min="0" max="100" class="opt-range">
+                        <p>100</p>
+                    </div>
                 </div>
                 <div class="font-sizing">
                     <p>Font Size: </p>
-                    <input type="range" min="0" max="100">
+                    <div class="slider">
+                        <p>0</p>
+                        <input type="range" min="0" max="100" class="opt-range">
+                        <p>100</p>
+                    </div>
                 </div>
                 <div class="font-type">
                     <p>Font Family: </p>
-                    <input type="text" placeholder="Enter a font family..." class="input-font-type">
+                    <input type="text" placeholder="Enter Font Type..." class="input-font-type input-text">
                 </div>
             </div>
         </section>

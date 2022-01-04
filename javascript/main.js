@@ -7,6 +7,9 @@ window.addEventListener("load", function(){
     api.userLocation.getUserLocation()    
     weatherInteraction()
     timeInteraction()
+    this.document.querySelectorAll("section").forEach(item => {
+        item.style.transition ="0.5s ease-in-out"
+    })
 })
 
 // website interaction 
