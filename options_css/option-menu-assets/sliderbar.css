@@ -1,37 +1,37 @@
 .opt-range{
-    width: 100%;
+    width: 90%;
     margin: auto;
     appearance: none;
     cursor: pointer;
-    background-color: white;
+    background-color: #444444;
     border-radius: 25px;
-    position: relative;
-    z-index: 10;
+    height: 10px;
 }
 
 .opt-range::-webkit-slider-thumb,.opt-range::-moz-range-thumb{
-    background-color: black;
+    background-color: #666666;
     outline: none;
     border:none;
     appearance: none;
-    width: 20%;
-    height: 100%;
+    width: 20px;
+    height: 20px;
     border-radius:10px;
-    position: relative;
-    z-index: 30;
 }
 
 .slider{
-    position: relative;
+    box-sizing: border-box;
     display:flex;
+    background-color:#232323;
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    transition:0.5s ease-in-out;
 }
-.slider > p{
-    position: absolute;
-    color: red;
-    z-index: 20;
-    left: 5%;
-}
-
-.slider > p:nth-child(3){
-    left: 80%;
+.slider > p{    
+    padding-inline: 0.275rem ;
+    margin: 0;
+    font-weight: 300;
+    color: white;
+    cursor: pointer;
+    transition:0.5s ease-in-out;
 }

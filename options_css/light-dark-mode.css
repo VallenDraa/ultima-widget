@@ -1,4 +1,32 @@
 /* light/dark mode settings */
+
+/* the option buttons and scrollbars */
+.toggle-btn-change-color{
+    background-color: #d1d1d2!important;
+    outline: 1px solid white!important;
+}
+/* for input text in option */
+.input-text-light-mode{
+    color: #333333 !important;
+}
+.input-text-light-mode:focus{
+    color:white !important;
+}
+/* for the toggle buttons in the option */
+.icon-text-black{
+    color: black !important;
+}
+/* some bg colors */
+.bg-dimgray{
+    background-color:#666666 !important;
+}
+.bg-lightergray{
+    background-color:#d1d1d2 !important;
+}
+
+
+
+/* for the cards */
 .light-mode-outer{
     background-color:rgb(255, 255, 255,0.9) !important;
     color: black !important;
@@ -7,6 +35,9 @@
     color: black!important;
     background-color: #f0f0f1!important;
 }
+
+
+
 /* for scrollbar */
 .scroll-bar-dark-mode{
     scrollbar-color:white #161616;
@@ -14,6 +45,9 @@
 .scroll-bar-light-mode{
     scrollbar-color: #999999 #f0f0f1!important;
 }
+
+
+
 /* for the x button in more detals */
 .light-mode-back-btn{
     color: white !important;
@@ -22,10 +56,4 @@
 .light-mode-back-btn:hover{
     background-color:rgba(85, 85, 85, 0.5)!important;
 }
-/* for input text */
-.input-text-light-mode{
-    color: #999999 !important;
-}
-.input-text-light-mode:focus{
-    color:white !important;
-}
+
