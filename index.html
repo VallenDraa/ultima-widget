@@ -12,15 +12,17 @@
     <link rel="stylesheet" href="./css/card-main-data.css">
     <link rel="stylesheet" href="./css/card-more-data.css">
     <link rel="stylesheet" href="./css/card-time.css">
-    <link rel="stylesheet" href="./css/card-time-more.css">
+    <link rel="stylesheet" href="./css/card-time-more.css">    
+    <link rel="stylesheet" href="./css/card-news.css">
     <link rel="stylesheet" href="./options_css/options.css">
     <link rel="stylesheet" href="./options_css/light-dark-mode.css">
     <link rel="stylesheet" href="./options_css/tranparent.css">
     <link rel="stylesheet" href="./options_css/option-menu-assets/sliderbar.css">
     <link rel="stylesheet" href="./options_css/option-menu-assets/btn-toggle.css">
+    <link rel="stylesheet" href="fonts.css">
     <title>Ultima Widget</title>
 </head>
-<body class="scroll-bar-dark-mode">
+<body class="scroll-bar-dark-mode" style="font-family: 'Open Sans', sans-serif ;">
     <div class="content">
         <!-- weather -->
         <section class="card-weather card">
@@ -32,7 +34,7 @@
             <div class="data">
                 <h2 class="city"></h2>            
                 <h2 class="temp"></h2>
-                <img src="" alt="" class="icon">
+                <img src="" alt="" class="weather-icon">
                 <!-- tiny weather details -->
                 <div id="bottom-data-weather">
                     <div class="details">
@@ -46,7 +48,7 @@
                 </div>
             </div>    
             <!-- after more details button is pressed -->
-            <div class="more-details card-inner">
+            <div class="more-details card-inner -webkit-scrollbar-dark">
                 <i class="far fa-times back-to-main-weather"></i>
                 <h2 class="other-city"></h2>
                 <div class="position">
@@ -83,13 +85,13 @@
             <p class="date"></p>
             <div id="bottom-data-time">
                 <div class="time-more-details">            
-                    <p class="timezone">Timezone: WIB</p>
+                    <p class="timezone"></p>
                     <i class="fas fa-ellipsis-v details-btn-time"></i>
                 </div>
                 <p class="zone"></p>            
                 <p class="offset"></p>                
             </div>
-            <div class="more-details-time card-inner">
+            <div class="more-details-time card-inner -webkit-scrollbar-dark">
                 <i class="far fa-times back-to-main-time"></i>
                 <div class="country-detail">
                     <h3>Country</h3>
@@ -108,7 +110,7 @@
         <!-- site Option section -->
         <section class="site-option card">                
             <h2>Widget Style</h2>
-            <div class="option-inner card-inner">
+            <div class="option-inner card-inner -webkit-scrollbar-dark">
                 <!-- dark/light mode, text transparent -->
                 <div class="display-style">
                     <p>Display Style:</p>
@@ -131,30 +133,35 @@
                 <div class="outer-spacing">
                     <p>Outer Spacing: </p>
                     <div class="slider">
-                        <p class="slider-num">0</p>
-                        <input type="range" min="0" max="10" class="opt-range">
-                        <p class="slider-num">20</p>
+                        <p class="slider-num">1</p>
+                        <input type="range" min="1" max="5" class="opt-range">
+                        <p class="slider-num">5</p>
                     </div>
                 </div>
                 <div class="inner-spacing">
                     <p>Inner Spacing: </p>
                     <div class="slider">
-                        <p class="slider-num">0</p>
-                        <input type="range" min="0" max="10" class="opt-range">
-                        <p class="slider-num">20</p>
+                        <p class="slider-num">1</p>
+                        <input type="range" min="1" max="5" class="opt-range">
+                        <p class="slider-num">5</p>
                     </div>
                 </div>
                 <div class="font-type">
                     <p>Font Family: </p>
-                    <input type="text" placeholder="Enter Font Type..." class="input-font-type input-text">
+                    <input type="text" placeholder="Enter Font Type..." class="input-font-type input-text" list="fontList">
+                    <datalist id="fontList">
+                    </datalist>
                 </div>
             </div>
         </section>
+        <!-- News Section  -->
+        <section class="news">
+            
+        </section>
+        <div class="footer">
+            <p>Made By Vallen With Love </p>        
+        </div>
     </div>
-    <div class="footer">
-        <p >Made By Vallen With Love </p>        
-    </div>
-
     <script type="module" src="./javascript/main.js"></script>
     <script src="./javascript/api.js"></script>
     <script src="./javascript/options.js"></script>

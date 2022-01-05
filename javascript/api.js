@@ -2,10 +2,10 @@
 export const weather = {
     // get all weather data and assign it into the html 1
     fetchWeatherData: function(city){
-        const apiKey1 = "262baac3e5df844f9992d3d71cf510cf"
-        const apiKey2 = "b190a0605344cc4f3af08d0dd473dd25"
-        const apiKey3 = "9a14131d21314caaf8e9208f49b174d4"
-        return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey2}`)
+        const apiKeyW1 = "262baac3e5df844f9992d3d71cf510cf"
+        const apiKeyW2 = "b190a0605344cc4f3af08d0dd473dd25"
+        const apiKeyW3 = "9a14131d21314caaf8e9208f49b174d4"
+        return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKeyW1}`)
             .then(response => response.json())
             .then(weatherData => errorFuncs.checkStatusCode(weatherData.cod, this.assignData(weatherData)))
             .catch(err => console.log(err))
@@ -35,7 +35,7 @@ export const weather = {
     updateDataUI: function(name,icon,main,temp,humidity,speed){
         document.querySelector(".city").textContent = name
         document.querySelector(".temp").textContent = `${Math.floor(temp)}°c`
-        document.querySelector(".icon").setAttribute("src",`https://openweathermap.org/img/wn/${icon}.png`)
+        document.querySelector(".weather-icon").setAttribute("src",`https://openweathermap.org/img/wn/${icon}.png`)
         document.querySelector(".weather").textContent = main
         document.querySelector(".humidity").textContent = `Humidity: ${humidity}%`
         document.querySelector(".wind-speed").textContent = `Wind Speed: ${Math.floor(speed)}km/h`
@@ -93,7 +93,9 @@ export const userLocation = {
 // get time data
 export const times ={
     fetchTimeData : function (lat,long){
-        return fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=KLM734BAJD6C&format=json&by=position&lat=${lat}&lng=${long}`)
+        const apiKeyT1 ="KLM734BAJD6C"
+        const apiKeyT2 = "NTWM4STL8W18"
+        return fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyT2}&format=json&by=position&lat=${lat}&lng=${long}`)
         .then(response => response.json())
         .then(timeData => this.assignTimeData(timeData))
         .catch(error => console.log(error))

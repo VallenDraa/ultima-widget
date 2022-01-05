@@ -1,14 +1,14 @@
 *{
-    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 body{    
     margin: 0;
     width: 100%;
     display: flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    height:100%;
     background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url(https://source.unsplash.com/1600x900/?landscape);
     overflow-y: scroll;
     background-size: cover;
@@ -28,22 +28,20 @@ p{
     grid-template-rows: 1fr 1fr;
     width: 70%;
     height: 80%;
-    justify-items: center;
-    gap: 5rem;
+    column-gap: 5rem;
+    row-gap: 1rem;
     transition:0.5s ease-in-out;
+    padding-top: 3rem;
 }
 
 .footer{
-    display: grid;
-    place-items: end center;
+    grid-column-end: span 4;
+    text-align:center;
+    margin-top: 2rem;
     color: white;
     bottom: 5%;
     font-weight: 300;
     font-size: 0.7rem;
-    z-index: 30;
-    position: absolute;
-    height: 60px;
-    cursor: default;
 }
 
 @keyframes shake{

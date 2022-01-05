@@ -39,14 +39,42 @@
 
 
 /* for scrollbar */
-.scroll-bar-dark-mode{
-    scrollbar-color:white #161616;
+/* webkit scrollbar darkmode */
+.-webkit-scrollbar-dark::-webkit-scrollbar{
+    background-color:#161616;
+    border-radius: 25px;
+    width:11px;
 }
-.scroll-bar-light-mode{
-    scrollbar-color: #999999 #f0f0f1!important;
+.-webkit-scrollbar-dark::-webkit-scrollbar-track{
+    background-color:#161616;
+    border-radius: 25px;
+}
+.-webkit-scrollbar-dark::-webkit-scrollbar-thumb{
+    background-color:white;
+    border-radius: 25px;
+    border: 2.5px solid #161616;
+}
+/* webkit scrollbar lightmode */
+.-webkit-scrollbar-light::-webkit-scrollbar{
+    background-color:#f0f0f1 !important;
+}
+.-webkit-scrollbar-light::-webkit-scrollbar-track{
+    background-color:#f0f0f1!important;
+}
+.-webkit-scrollbar-light::-webkit-scrollbar-thumb{
+    background-color:#999999!important;
+    border: 2.5px solid #f0f0f1 !important;
 }
 
 
+@supports (scrollbar-color: #999999 #f0f0f1!important){
+    .scroll-bar-dark-mode{
+        scrollbar-color:white #161616!important;
+    }
+    .scroll-bar-light-mode{
+        scrollbar-color: #999999 #f0f0f1!important;
+    }
+}
 
 /* for the x button in more detals */
 .light-mode-back-btn{
@@ -56,4 +84,5 @@
 .light-mode-back-btn:hover{
     background-color:rgba(85, 85, 85, 0.5)!important;
 }
+
 

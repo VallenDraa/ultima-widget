@@ -24,13 +24,15 @@ document.querySelector(".toggle-display").addEventListener("click",function(){
     document.querySelectorAll(".slider>p").forEach(item => {
         item.classList.toggle("icon-text-black")
     })
-
+    document.querySelectorAll(".-webkit-scrollbar-dark").forEach(item => {
+        item.classList.toggle("-webkit-scrollbar-light")
+    })
+    document.querySelector(".weather-icon").classList.toggle("add-bg-weather-icon")
     turnLightMode()
     lightMode = !lightMode
     console.log(lightMode, "lm")
     displayTransparentConfig()
 })
-
 
 
 // text transparent
@@ -43,25 +45,65 @@ document.querySelector(".toggle-transparent").addEventListener("click",function(
 
 
 // slider eventlistener
-const rangeSliders = document.querySelectorAll(".opt-range")
-let slide1Value = 0;
-let slide2value= 0; 
+const rangeSliders = document.querySelectorAll(".opt-range")    
+const content= document.querySelector(".content")
+
 // outer spacing slider
-rangeSliders[0].addEventListener("change",function() {
-    const content= document.querySelector(".content")
-    // const style = getComputedStyle(content)
-    // let contentWidth = (parseInt(style.width)/parseInt(screen.width)) *100
-    if(this.value > slide1Value) {
-        console.log("increase")
-        content.style.width = `${70-parseInt(this.value)}%`
-    } else {
-        console.log("decrease")
-        content.style.width = `${70+parseInt(this.value)}%`
+rangeSliders[0].addEventListener("input",function() {
+    switch (parseInt(this.value)) {
+        case 1:
+            content.style.width = `70%`
+            break;
+        case 2:
+            content.style.width = `65%`
+            break;
+        case 3:
+            content.style.width = `60%`
+            break;
+        case 4:
+            content.style.width = `55%`
+            break;
+        case 5:
+            content.style.width = `50%`
+            break;               
+        default:
+            break;
     }
-    slide1Value = parseInt(this.value);
+})
+rangeSliders[1].addEventListener("input",function() {
+    switch (parseInt(this.value)) {
+        case 1:
+            content.style.gap = `5rem`
+            break;
+        case 2:
+            content.style.gap = `5.3rem`
+            break;
+        case 3:
+            content.style.gap = `5.6rem`
+            break;
+        case 4:
+            content.style.gap = `5.9rem`
+            break;
+        case 5:
+            content.style.gap = `6.2rem`
+            break;               
+        default:
+            break;
+    }
 })
 
+// font changes input eventlistener
+document.querySelector(".input-font-type").addEventListener("input",function(){
+    this.value != "" ? changeFont(this.value) : changeFont("'Open Sans', sans-serif")
+    console.log(this.value)
+})
+// wait until option loads and immediately adds datalist
+window.addEventListener("load",function(){
+    const datalist = document.querySelector("#fontList")
+    const fonts = ["Open Sans","Jetbrains Mono","Roboto","Lato","Monserrat","Poppins","Oswald","Noto Serif","Oxygen","Ubuntu","Serif","Sans Serif","Monospace","Fantasy","Cursive","Verdana","Impact","Georgia","Cambria","Trebuchet MS","Times New Roman","Segoe UI", "Lucida Sans", "Gills Sans", "Franklin Gothic Medium", "Courier New"]
 
+    addToOption(fonts,datalist)
+})
 
 
 // blinding mode function
@@ -82,7 +124,6 @@ function turnLightMode(){
 
     // text transparency
 }
-
 // turn text to transparent
 function textTransparent(){
     cards.forEach(item => {
@@ -108,4 +149,19 @@ function displayTransparentConfig(){
             document.body.classList.remove("lighten-bg")
        }
    })
+}
+// change to new font function
+function changeFont(fontType){
+    document.body.style=`font-family: ${fontType};`
+}
+function addToOption(fonts,dataListHTML){
+    let result = []
+    fonts.forEach(font=>{
+        let optTemp = document.createElement("option")
+        optTemp.textContent = font
+        result.push(optTemp)
+    })
+    result.forEach(item=>{
+        dataListHTML.appendChild(item)
+    })
 }

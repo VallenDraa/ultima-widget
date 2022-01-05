@@ -70,3 +70,4 @@ setInterval(function(){
     if(api.errorList.error_429) return;
     api.times.fetchTimeData(api.weather.latLong[0], api.weather.latLong[1])
 },1000)
+
