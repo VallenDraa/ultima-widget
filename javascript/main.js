@@ -3,10 +3,19 @@ import * as api from "./api.js";
 // on load get user data and update weather based on user input
 window.addEventListener("load", function(){
     if(api.errorList.error_429) return;
-    api.weather.fetchWeatherData("NEW YORK CITY")
+    navigator.geolocation.watchPosition(function() {
+        return;
+      },
+      function(error) {
+        if (error.code == error.PERMISSION_DENIED)   
+          api.weather.fetchWeatherData("NEW YORK CITY")
+          api.news.fetchNewsData("New York City")
+      });
+
     api.userLocation.getUserLocation()    
     weatherInteraction()
     timeInteraction()
+    newsInteraction()
     this.document.querySelectorAll("section").forEach(item => {
         item.style.transition ="0.5s ease-in-out"
     })
@@ -64,10 +73,18 @@ const timeInteraction = function(){
         moreDetailTime.classList.toggle("make-visible-more-details")
     })
 }
-
+const newsInteraction = function(){
+    document.querySelector(".search-bar").addEventListener("change", function(){
+        api.news.fetchNewsData(this.value)
+    })
+    document.querySelector(".search-bar").addEventListener(".keyup",function(e){
+        if(e.keyCode === 13 && this.value != ""){
+            api.news.fetchNewsData(this.value)
+        }
+    })
+}
 // refresh seconds in time
 setInterval(function(){
     if(api.errorList.error_429) return;
     api.times.fetchTimeData(api.weather.latLong[0], api.weather.latLong[1])
 },1000)
-

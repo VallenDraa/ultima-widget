@@ -1,5 +1,14 @@
 /* light/dark mode settings */
 
+/* for weather icon */
+.weather-icon-dark{
+    background-color: #222222;
+    border-radius: 10px;
+}
+.weather-icon-light{
+    background-color: #d1d1d2 !important;
+}
+
 /* the option buttons and scrollbars */
 .toggle-btn-change-color{
     background-color: #d1d1d2!important;
@@ -65,8 +74,6 @@
     background-color:#999999!important;
     border: 2.5px solid #f0f0f1 !important;
 }
-
-
 @supports (scrollbar-color: #999999 #f0f0f1!important){
     .scroll-bar-dark-mode{
         scrollbar-color:white #161616!important;
@@ -85,4 +92,13 @@
     background-color:rgba(85, 85, 85, 0.5)!important;
 }
 
+/* for news inner card and content */
+.news-content-dark{
+    background-color:#232323;
+    color: white;
+}
+.news-content-light{
+    background-color:#e6e6e6 !important;
+    color: black !important;
+}
 

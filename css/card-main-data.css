@@ -34,10 +34,6 @@
 .weather-icon{
     transition: 0.35s ease-in-out;
 }
-.add-bg-weather-icon{
-    background-color: #d1d1d2;
-    border-radius: 10px;
-}
 .more-menu{
     display: flex;
     justify-content: space-between;

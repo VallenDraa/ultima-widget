@@ -10,6 +10,7 @@ export const weather = {
             .then(weatherData => errorFuncs.checkStatusCode(weatherData.cod, this.assignData(weatherData)))
             .catch(err => console.log(err))
     },
+
     assignData: function(datas){
         try{
             const {name,visibility} = datas
@@ -32,6 +33,7 @@ export const weather = {
         }
 
     },
+
     updateDataUI: function(name,icon,main,temp,humidity,speed){
         document.querySelector(".city").textContent = name
         document.querySelector(".temp").textContent = `${Math.floor(temp)}°c`
@@ -40,6 +42,7 @@ export const weather = {
         document.querySelector(".humidity").textContent = `Humidity: ${humidity}%`
         document.querySelector(".wind-speed").textContent = `Wind Speed: ${Math.floor(speed)}km/h`
     },
+
     updateMoreDataUI: function(visibility,feels_like,temp_min,temp_max,pressure,deg,country, lon,lat,temp,speed,humidity,name){
         document.querySelector(".other-city").textContent = name
         document.querySelector(".lat").textContent = `Latitude: ${lat}`
@@ -55,6 +58,7 @@ export const weather = {
         document.querySelector(".other-humid").textContent = `Humidity: ${humidity}%`
         document.querySelector(".country").textContent = `Country: ${country}`
     },
+
     latLong: []
 }
 
@@ -69,7 +73,7 @@ export const userLocation = {
             console.log(`Your latitude: ${latitude}\nYour longitude: ${longitude}`)
             
             const userCity = await userLocation.fetchCity(latitude, longitude)
-            userLocation.updateWeatherToUserLoc(userCity)
+            userLocation.reupdateWeatherAndNews(userCity)
         }
         //if user don't want to get their location checked
         const error = error=> console.log(error)
@@ -81,12 +85,13 @@ export const userLocation = {
     fetchCity: function(latitude,longitude){
         return fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
         .then(response => response.json())
-        .then(locationData =>locationData.localityInfo.administrative[2].name)
+        .then(locationData => locationData.localityInfo.administrative[2].name)
         .catch(error => console.log(error))
     },
 
-    updateWeatherToUserLoc: function(userCity){
+    reupdateWeatherAndNews: function(userCity){
         weather.fetchWeatherData(userCity)
+        news.fetchNewsData(userCity)
     }
 }
 
@@ -97,9 +102,10 @@ export const times ={
         const apiKeyT2 = "NTWM4STL8W18"
         return fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyT2}&format=json&by=position&lat=${lat}&lng=${long}`)
         .then(response => response.json())
-        .then(timeData => this.assignTimeData(timeData))
+        .then(timeData =>  this.assignTimeData(timeData))
         .catch(error => console.log(error))
     },
+
     assignTimeData: function(timeData){
         const {countryCode,countryName,zoneName,abbreviation,gmtOffset,dst,zoneStart,timestamp,formatted} = timeData 
         const dateAndTime = formatted.split(" ")
@@ -107,6 +113,7 @@ export const times ={
         this.updateTimeUI(dateAndTime[1],dateAndTime[0],abbreviation,zoneName,gmtOffset)
         this.updateTimeDetailUI(countryCode,countryName,dst,gmtOffset,zoneStart,timestamp)
     },
+
     updateTimeUI: function(time,date,abbreviation,zoneName,gmtOffset){
         document.querySelector(".current-time").textContent = time
         document.querySelector(".date").textContent = date
@@ -114,6 +121,7 @@ export const times ={
         document.querySelector(".zone").textContent = `Area Zone: ${zoneName}`
         document.querySelector(".offset").textContent = `GMT Offset: ${gmtOffset}`
     },
+
     updateTimeDetailUI : function(countryCode,countryName,dst,gmtOffset,zoneStart,timestamp){
         document.querySelector(".country-code").textContent = `Country Code: ${countryCode}`
         document.querySelector(".country-name").textContent = `Country Name: ${countryName}`
@@ -121,6 +129,59 @@ export const times ={
         document.querySelector(".offset-detail").textContent = `GMT Offset: ${gmtOffset}`
         document.querySelector(".zone-start").textContent = `Zone Start: ${zoneStart}`
         document.querySelector(".timestamp").textContent = `Timestamp: ${timestamp}`
+    }
+}
+
+// get news data 
+export const news= {
+    cityName: "",
+    fetchNewsData: function(city){
+        this.cityName = city
+        const formattedCity = city.replace(" ", "%20")
+        fetch(`https://free-news.p.rapidapi.com/v1/search?q=${formattedCity}&lang=en`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "free-news.p.rapidapi.com",
+                "x-rapidapi-key": "f985b064ebmsh601af2da22cd878p1550b2jsn10a652b73e8e"
+            }
+        })
+        .then(response => response.json())
+        .then(newsData => this.assignNewsData(newsData))
+        .catch(err => {
+            console.error(err);
+        });
+    },
+    assignNewsData: function(newsData) {
+        const newsArticles = newsData.articles;
+        this.updateNewsUI(newsArticles)
+    },
+    updateNewsUI: function(newsArticles) {
+        let result = ""
+        if(newsArticles !== undefined) {
+            for (let i = 0; i < newsArticles.length; i++) {
+                let newsHTML = `       
+                <article class="news-content news-content-dark">       
+                    <img src="${newsArticles[i].media}" alt="">
+                    <div class ="news-content-text">
+                        <h4 class="news-title">${newsArticles[i].title}</h4>
+                        <a href="${newsArticles[i].link}" target="_blank" class="news-link">Read More</a>
+                        <p class="news-summary">${newsArticles[i].summary}</p>
+                    </div>
+                </div>
+            </article>  
+            `
+                result += newsHTML
+            }
+            document.querySelector(".inner-news").innerHTML = result            
+        }
+        else{
+            if(this.cityName != ""){
+                document.querySelector(".inner-news").textContent = `Sorry No News Available From ${news.cityName} :(`                      
+            }
+            else{
+                document.querySelector(".inner-news").textContent = `Type a Place Or a City Name In The Search Bar....`
+            }
+        }
     }
 }
 
@@ -136,6 +197,7 @@ export const errorFuncs ={
                 break;
         }
     },
+
     tooManyRequest: function(){
         alert("Too many api requests to the server, please try again later!")
         return errorList.error_429 = true;
@@ -144,5 +206,9 @@ export const errorFuncs ={
 
 // error list
 export const errorList = {
-    error_429: false
+    error_429: false,
+    error_400: false,
+    error_500: false,
+    error_403: false,
+    error_401: false
 }

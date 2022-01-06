@@ -27,7 +27,10 @@ document.querySelector(".toggle-display").addEventListener("click",function(){
     document.querySelectorAll(".-webkit-scrollbar-dark").forEach(item => {
         item.classList.toggle("-webkit-scrollbar-light")
     })
-    document.querySelector(".weather-icon").classList.toggle("add-bg-weather-icon")
+    document.querySelectorAll(".news-content").forEach(item => {
+        item.classList.toggle("news-content-light")
+    })
+    document.querySelector(".weather-icon").classList.toggle("weather-icon-light")
     turnLightMode()
     lightMode = !lightMode
     console.log(lightMode, "lm")
@@ -50,58 +53,26 @@ const content= document.querySelector(".content")
 
 // outer spacing slider
 rangeSliders[0].addEventListener("input",function() {
-    switch (parseInt(this.value)) {
-        case 1:
-            content.style.width = `70%`
-            break;
-        case 2:
-            content.style.width = `65%`
-            break;
-        case 3:
-            content.style.width = `60%`
-            break;
-        case 4:
-            content.style.width = `55%`
-            break;
-        case 5:
-            content.style.width = `50%`
-            break;               
-        default:
-            break;
-    }
+    let resize =(()=>{content.style.width = `${(70-(this.value-1))-(this.value*3)}%`})()
 })
 rangeSliders[1].addEventListener("input",function() {
-    switch (parseInt(this.value)) {
-        case 1:
-            content.style.gap = `5rem`
-            break;
-        case 2:
-            content.style.gap = `5.3rem`
-            break;
-        case 3:
-            content.style.gap = `5.6rem`
-            break;
-        case 4:
-            content.style.gap = `5.9rem`
-            break;
-        case 5:
-            content.style.gap = `6.2rem`
-            break;               
-        default:
-            break;
-    }
+    let resize =(()=>{
+        content.style.columnGap = `${6-(this.value-1.75)}rem`
+        content.style.rowGap = `${2-(Math.abs(this.value-1.8))}rem`
+    })()
 })
 
 // font changes input eventlistener
+const fonts = ["Open Sans","Jetbrains Mono","Roboto","Lato","Monserrat","Poppins","Oswald","Noto Serif","Oxygen","Ubuntu","Serif","Sans Serif","Monospace","Fantasy","Cursive","Verdana","Impact","Georgia","Cambria","Trebuchet MS","Times New Roman","Segoe UI", "Lucida Sans", "Gills Sans", "Franklin Gothic Medium", "Courier New"]
+
 document.querySelector(".input-font-type").addEventListener("input",function(){
-    this.value != "" ? changeFont(this.value) : changeFont("'Open Sans', sans-serif")
-    console.log(this.value)
+    if(this.value != ""){
+        changeFont(this.value, fonts)
+    }
 })
 // wait until option loads and immediately adds datalist
 window.addEventListener("load",function(){
     const datalist = document.querySelector("#fontList")
-    const fonts = ["Open Sans","Jetbrains Mono","Roboto","Lato","Monserrat","Poppins","Oswald","Noto Serif","Oxygen","Ubuntu","Serif","Sans Serif","Monospace","Fantasy","Cursive","Verdana","Impact","Georgia","Cambria","Trebuchet MS","Times New Roman","Segoe UI", "Lucida Sans", "Gills Sans", "Franklin Gothic Medium", "Courier New"]
-
     addToOption(fonts,datalist)
 })
 
@@ -151,8 +122,12 @@ function displayTransparentConfig(){
    })
 }
 // change to new font function
-function changeFont(fontType){
-    document.body.style=`font-family: ${fontType};`
+function changeFont(fontInput, fontList){
+    fontList.forEach(font=>{
+        if(fontInput.toLowerCase() == font.toLowerCase()){
+            document.body.style=`font-family: '${fontInput}';`
+        }
+    })
 }
 function addToOption(fonts,dataListHTML){
     let result = []
