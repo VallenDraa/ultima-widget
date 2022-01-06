@@ -1,7 +1,6 @@
 // options
 // dark/light mode event listeners
 let lightMode = false;
-let transparent = false;
 const cards = document.querySelectorAll(".card")
 
 document.querySelector(".toggle-display").addEventListener("click",function(){
@@ -15,7 +14,7 @@ document.querySelector(".toggle-display").addEventListener("click",function(){
     document.querySelectorAll(".inner-circle").forEach(item => {
         item.classList.toggle("bg-dimgray")
     })
-    document.querySelectorAll(".toggle-transparent>p").forEach(item => {
+    document.querySelectorAll(".text-btn>p").forEach(item => {
         item.classList.toggle("icon-text-black")
     })
     document.querySelectorAll(".slider").forEach(item => {
@@ -38,14 +37,41 @@ document.querySelector(".toggle-display").addEventListener("click",function(){
 })
 
 
-// text transparent
+// transparent
+let isTransparent = false;
 document.querySelector(".toggle-transparent").addEventListener("click",function() {
+    isTransparent = !isTransparent
+    console.log(isTransparent)
     document.querySelectorAll(".inner-circle")[1].classList.toggle("move-inner-circle")
-    textTransparent()
-    transparent = !transparent
-    console.log(transparent, "tr")
+    glassmode()
+
+    // remove the rgb mode if transparent is enabled
+    if(document.querySelectorAll(".inner-circle")[2].classList.contains("move-inner-circle")){
+        document.querySelectorAll(".inner-circle")[2].classList.remove("move-inner-circle")
+        RGBMode()        
+    }
 })
 
+// rgb shuffle
+let rgbOn = false;
+let rgbInterval = "";
+document.querySelector(".toggle-rgb").addEventListener("click",function() {
+    rgbOn = !rgbOn
+    if(isTransparent == false){
+        document.querySelectorAll(".inner-circle")[2].classList.toggle("move-inner-circle")
+        RGBMode(rgbInterval)        
+    } 
+})
+document.querySelector(".interval-input").addEventListener("input",function() {
+    if(/[0-9]/.test(this.value)){
+       if(rgbOn == true){
+           RGBMode(parseInt(this.value))
+       }
+       else{
+           rgbInterval = parseInt(this.value)
+       } 
+    }
+})
 
 // slider eventlistener
 const rangeSliders = document.querySelectorAll(".opt-range")    
@@ -96,7 +122,7 @@ function turnLightMode(){
     // text transparency
 }
 // turn text to transparent
-function textTransparent(){
+function glassmode(){
     cards.forEach(item => {
         if(lightMode){
             item.classList.toggle("transparent-dark")
@@ -139,4 +165,33 @@ function addToOption(fonts,dataListHTML){
     result.forEach(item=>{
         dataListHTML.appendChild(item)
     })
+}
+// RGB Mode On
+function RGBMode(timeInterval){    
+    let shuffleColor; 
+    if(timeInterval == ""){
+        timeInterval = 2500
+    }
+    else{
+        timeInterval = timeInterval *1000
+    }
+    clearInterval(shuffleColor)
+            document.querySelectorAll(".card").forEach(card=>{
+                card.setAttribute("style",`0px 10px 10px rgba(0, 0, 0, 0.4);`)
+    })   
+    shuffleColor = setInterval(()=>{    
+        let r = Math.round(Math.random() *255+1),
+        g = Math.round(Math.random() *255+1),
+        b = Math.round(Math.random() *255+1);
+        document.querySelectorAll(".card").forEach(card=>{
+            card.setAttribute("style", `box-shadow: 5px 10px 10px rgb(${r},${g},${b})`)
+        })
+
+        if(isTransparent == true || rgbOn == false){
+            clearInterval(shuffleColor)
+            document.querySelectorAll(".card").forEach(card=>{
+                card.setAttribute("style",`0px 10px 10px rgba(0, 0, 0, 0.4);`)
+            })   
+        }
+    },timeInterval)        
 }

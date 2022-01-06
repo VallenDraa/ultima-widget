@@ -34,9 +34,19 @@
 }
 
 /* button inner text glass effect */
-.toggle-transparent > p{
+.text-btn > p{
     font-size: 0.6rem;
     font-weight: 300;
     color: white;
     transition:0.5s ease-in-out;
+}
+.toggle-rgb{
+    margin-bottom: 0rem !important;
+    align-self: center;
+}
+
+.toggle-and-input{
+    display:flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
 }

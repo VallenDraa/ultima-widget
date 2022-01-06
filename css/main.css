@@ -35,6 +35,10 @@ p{
     padding-top: 3rem;
 }
 
+.card{
+    transition:0.5s ease-in-out;
+}
+
 .footer{
     grid-column-end: span 4;
     text-align:center;

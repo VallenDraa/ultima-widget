@@ -112,7 +112,7 @@
         <section class="site-option card">                
             <h2>Widget Style</h2>
             <div class="option-inner card-inner -webkit-scrollbar-dark">
-                <!-- dark/light mode, text transparent -->
+                <!-- dark/light mode -->
                 <div class="display-style">
                     <p>Display Style:</p>
                     <div class="toggle-btn toggle-display">
@@ -121,16 +121,30 @@
                         <div class="inner-circle"></div>
                     </div>
                 </div>
+                <!-- Glass Effect -->
                 <div class="text-transparent-opt">
                     <p>Glass Effect:</p>
                     <div>
-                        <div class="toggle-btn toggle-transparent">
+                        <div class="toggle-btn toggle-transparent text-btn">
                             <p>on</p>
                             <p>off</p>
                             <div class="inner-circle"></div>
                         </div>
                     </div>
                 </div>
+                <!-- RGB Shadow -->
+                <div class="rgb-shadow">
+                    <p>RGB Shuffle:</p>
+                    <section class="toggle-and-input">
+                        <div class="toggle-btn toggle-rgb text-btn">
+                            <p>on</p>
+                            <p>off</p>
+                            <div class="inner-circle"></div>
+                        </div>                     
+                        <input type="text" placeholder="2.5s" class="input-font-type interval-input" maxlength="4">
+                    </section>
+                </div>
+                <!-- Outer Spacing -->
                 <div class="outer-spacing">
                     <p>Outer Spacing: </p>
                     <div class="slider">
@@ -139,6 +153,7 @@
                         <p class="slider-num">5</p>
                     </div>
                 </div>
+                <!-- Inner Spacing -->
                 <div class="inner-spacing">
                     <p>Inner Spacing: </p>
                     <div class="slider">
@@ -147,6 +162,7 @@
                         <p class="slider-num">3</p>
                     </div>
                 </div>
+                <!-- Font Type -->
                 <div class="font-type">
                     <p>Font Family: </p>
                     <input type="text" placeholder="Enter Font Type..." class="input-font-type input-text" list="fontList">
