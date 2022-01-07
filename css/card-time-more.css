@@ -1,7 +1,7 @@
 .more-details-time{
     position: absolute;
     overflow-y: scroll;
-    inset: 20% 5% 5% 0;
+    inset: 20% 5% 5% -3%;
     background-color:#161616;
     color: white;
     padding: 1rem;

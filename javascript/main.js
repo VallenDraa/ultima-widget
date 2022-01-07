@@ -2,7 +2,15 @@ import * as api from "./api.js";
 
 // on load get user data and update weather based on user input
 window.addEventListener("load", function(){
-    if(api.errorList.error_429) return;
+    checkGeolocation()  
+    weatherInteraction()
+    timeInteraction()
+    newsInteraction()
+    addTransitionToAll()
+})
+
+// check if geolocation is allowed
+function checkGeolocation() {
     navigator.geolocation.watchPosition(function() {
         return;
       },
@@ -13,13 +21,7 @@ window.addEventListener("load", function(){
       });
 
     api.userLocation.getUserLocation()    
-    weatherInteraction()
-    timeInteraction()
-    newsInteraction()
-    this.document.querySelectorAll("section").forEach(item => {
-        item.style.transition ="0.5s ease-in-out"
-    })
-})
+}
 
 // website interaction 
 const weatherInteraction = function(){
@@ -88,3 +90,15 @@ setInterval(function(){
     if(api.errorList.error_429) return;
     api.times.fetchTimeData(api.weather.latLong[0], api.weather.latLong[1])
 },1000)
+
+// misc
+function addTransitionToAll(){
+    document.querySelectorAll("section").forEach(item => {
+        item.classList.add("transition")
+    })
+}
+
+
+
+
+//animation: dissappear 1.5s ease-in-out;

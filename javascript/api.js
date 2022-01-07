@@ -1,4 +1,4 @@
-// get weather data
+// get weather data NOW
 export const weather = {
     // get all weather data and assign it into the html 1
     fetchWeatherData: function(city){
@@ -7,7 +7,10 @@ export const weather = {
         const apiKeyW3 = "9a14131d21314caaf8e9208f49b174d4"
         return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKeyW1}`)
             .then(response => response.json())
-            .then(weatherData => errorFuncs.checkStatusCode(weatherData.cod, this.assignData(weatherData)))
+            .then(weatherData => {errorFuncs.checkStatusCode(
+                weatherData.cod, this.assignData(weatherData))
+                weatherData.cod == 404 ? news.proceedToFetch = false : news.proceedToFetch = true
+            })
             .catch(err => console.log(err))
     },
 
@@ -45,16 +48,16 @@ export const weather = {
 
     updateMoreDataUI: function(visibility,feels_like,temp_min,temp_max,pressure,deg,country, lon,lat,temp,speed,humidity,name){
         document.querySelector(".other-city").textContent = name
-        document.querySelector(".lat").textContent = `Latitude: ${lat}`
-        document.querySelector(".long").textContent = `Longitude: ${lon}`
+        document.querySelector(".lat").textContent = `Latitude: ${lat}°`
+        document.querySelector(".long").textContent = `Longitude: ${lon}°`
         document.querySelector(".current-temp").textContent = `Temperature: ${temp}°c`
         document.querySelector(".feels").textContent = `Feels Like: ${feels_like}°c`
         document.querySelector(".min").textContent = `Min Temperature: ${temp_min}°c`
         document.querySelector(".max").textContent = `Max Temperature: ${temp_max}°c`
         document.querySelector(".speed").textContent = `Speed: ${speed}km/h`
         document.querySelector(".deg").textContent = `Degree: ${deg}°`
-        document.querySelector(".vis").textContent = `Visibility: ${visibility}`
-        document.querySelector(".press").textContent = `Pressure: ${pressure}`
+        document.querySelector(".vis").textContent = `Visibility: ${visibility/1000} km`
+        document.querySelector(".press").textContent = `Pressure: ${pressure} mb`
         document.querySelector(".other-humid").textContent = `Humidity: ${humidity}%`
         document.querySelector(".country").textContent = `Country: ${country}`
     },
@@ -134,22 +137,29 @@ export const times ={
 
 // get news data 
 export const news= {
+    proceedToFetch:true,
     cityName: "",
     fetchNewsData: function(city){
-        this.cityName = city
-        const formattedCity = city.replace(" ", "%20")
-        fetch(`https://free-news.p.rapidapi.com/v1/search?q=${formattedCity}&lang=en`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "free-news.p.rapidapi.com",
-                "x-rapidapi-key": "f985b064ebmsh601af2da22cd878p1550b2jsn10a652b73e8e"
+        setTimeout(() =>{
+            if(this.proceedToFetch){
+                this.cityName = city
+                const formattedCity = city.replace(" ", "%20")
+                fetch(`https://free-news.p.rapidapi.com/v1/search?q=${formattedCity}&lang=en`, {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "free-news.p.rapidapi.com",
+                        "x-rapidapi-key": "f985b064ebmsh601af2da22cd878p1550b2jsn10a652b73e8e"
+                    }
+                })
+                .then(response => response.json())
+                .then(newsData => this.assignNewsData(newsData))
+                .catch(err => {
+                    console.error(err);
+                });            
             }
-        })
-        .then(response => response.json())
-        .then(newsData => this.assignNewsData(newsData))
-        .catch(err => {
-            console.error(err);
-        });
+
+        },600)
+
     },
     assignNewsData: function(newsData) {
         const newsArticles = newsData.articles;
@@ -165,7 +175,7 @@ export const news= {
                     <div class ="news-content-text">
                         <h4 class="news-title">${newsArticles[i].title}</h4>
                         <a href="${newsArticles[i].link}" target="_blank" class="news-link">Read More</a>
-                        <p class="news-summary">${newsArticles[i].summary}</p>
+                        <p class="news-summary" style="text-align:justify;margin-right: 0.5rem;">${newsArticles[i].summary}</p>
                     </div>
                 </div>
             </article>  
@@ -176,10 +186,10 @@ export const news= {
         }
         else{
             if(this.cityName != ""){
-                document.querySelector(".inner-news").textContent = `Sorry No News Available From ${news.cityName} :(`                      
+                document.querySelector(".inner-news").innerHTML = `<p style="padding: 1rem 0 0 0;">Sorry No News Available From ${news.cityName}</p>`                      
             }
             else{
-                document.querySelector(".inner-news").textContent = `Type a Place Or a City Name In The Search Bar....`
+                document.querySelector(".inner-news").innerHTML = `<p style="padding: 1rem 0 0 0;">Type a Place Or a City Name In The Search Bar....</p>`
             }
         }
     }
@@ -207,6 +217,7 @@ export const errorFuncs ={
 // error list
 export const errorList = {
     error_429: false,
+    error_404: false,
     error_400: false,
     error_500: false,
     error_403: false,

@@ -14,19 +14,16 @@
     border-radius:10px;
     margin-right: 1rem;
 }
-
 .news-title{
     margin: 0;
     font-size: 1.4rem;
     color: inherit;
-    transition: 0.5s ease-in-out;
 }
 
 .news-link{
     font-size: 0.7rem;
     text-decoration: underline;
     font-style: none;
-    transition: 0.5s ease-in-out;
     color: inherit;
 }
 .news-link:hover{
@@ -37,5 +34,4 @@
     margin-top: 1rem;
     font-size: 1rem;
     color: inherit;
-    transition: 0.5s ease-in-out;
 }

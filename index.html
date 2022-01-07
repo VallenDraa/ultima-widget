@@ -20,15 +20,19 @@
     <link rel="stylesheet" href="./options_css/tranparent.css">
     <link rel="stylesheet" href="./options_css/option-menu-assets/sliderbar.css">
     <link rel="stylesheet" href="./options_css/option-menu-assets/btn-toggle.css">
-    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="./misc_css/fonts.css">
+    <link rel="stylesheet" href="./misc_css/loading.css">
     <title>Ultima Widget</title>
 </head>
 <body class="scroll-bar-dark-mode" style="font-family: 'Open Sans', sans-serif ;">
+    <!-- <div class="loading">
+        <img src="./gif/loading.gif" alt="">
+    </div> -->
     <div class="content">
         <!-- weather -->
         <section class="card-weather card">
             <div class="search">
-                <input type="text" class="search-bar input-text" placeholder="Search City or Place...">
+                <input type="text" class="search-bar input-text place-searchbar" placeholder="Search City or Place...">
                 <!-- <button class="search-btn"><i class="fas fa-search"></i></button> -->
             </div>
             <!-- weather data starts here -->
@@ -141,7 +145,7 @@
                             <p>off</p>
                             <div class="inner-circle"></div>
                         </div>                     
-                        <input type="text" placeholder="2.5s" class="input-font-type interval-input" maxlength="4">
+                        <input type="text" placeholder="Input Interval First.. [2.5]" class="input-in-option interval-input" maxlength="4">
                     </section>
                 </div>
                 <!-- Outer Spacing -->
@@ -158,15 +162,16 @@
                     <p>Inner Spacing: </p>
                     <div class="slider">
                         <p class="slider-num">1</p>
-                        <input type="range" min="1" max="3" class="opt-range flipped">
-                        <p class="slider-num">3</p>
+                        <input type="range" min="1" max="2" class="opt-range">
+                        <p class="slider-num">2</p>
                     </div>
                 </div>
                 <!-- Font Type -->
                 <div class="font-type">
                     <p>Font Family: </p>
-                    <input type="text" placeholder="Enter Font Type..." class="input-font-type input-text" list="fontList">
+                    <input type="text" placeholder="Enter Font Type..." class="input-in-option input-text input-font-type" list="fontList">
                     <datalist id="fontList">
+                        <!-- content would be added in after the page is loaded, {script is in options.js} -->
                     </datalist>
                 </div>
             </div>
@@ -177,9 +182,10 @@
             <div class ="inner-news -webkit-scrollbar-dark">
             </div>
         </section>
-        <div class="footer">
-            <p>Made By Vallen With Love </p>        
-        </div>
+       
+    </div> 
+    <div class="footer">
+         <p>Made By Vallen With Love </p>        
     </div>
     <script type="module" src="./javascript/main.js"></script>
     <script src="./javascript/api.js"></script>

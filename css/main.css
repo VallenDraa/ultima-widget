@@ -1,16 +1,11 @@
 *{
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 body{    
     margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    height:100%;
-    background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url(https://source.unsplash.com/1600x900/?landscape);
+    background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url(https://source.unsplash.com/1200x1200/?landscape);
+    background-position: center;
     overflow-y: scroll;
     background-size: cover;
 }
@@ -24,29 +19,28 @@ p{
 
 
 .content{
+    max-width: 1500px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 3fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr 1.5fr;
     width: 70%;
-    height: 80%;
-    column-gap: 6.75rem;
-    row-gap: 1.2rem;
+    height: 100%;
+    gap: 1.2rem;
     transition:0.5s ease-in-out;
-    padding-top: 3rem;
+    padding-top: 1rem;
 }
 
-.card{
-    transition:0.5s ease-in-out;
+.transition{
+    transition:0.5s ease-in-out !important;
 }
 
 .footer{
-    grid-column-end: span 4;
     text-align:center;
     margin-block: 2rem;
     color: white;
-    bottom: 5%;
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     cursor:default;
 }
 

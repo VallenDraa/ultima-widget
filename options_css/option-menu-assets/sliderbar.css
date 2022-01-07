@@ -44,7 +44,3 @@
     cursor: pointer;
     transition:0.5s ease-in-out;
 }
-
-.flipped{
-    transform:rotate(180deg)
-}
