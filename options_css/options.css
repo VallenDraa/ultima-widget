@@ -1,4 +1,4 @@
-.site-option{
+.card-option{
     background-color:rgba(8, 8, 8, 0.85);
     padding: 2rem;
     width: 100%;
@@ -8,7 +8,7 @@
     z-index: 10;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4);
 }
-.site-option h2{
+.card-option h2{
     font-size: 1rem;
     border-radius:20px;
     color: #999999;
@@ -27,7 +27,6 @@
     background-color:#161616;
     padding: 1rem;
     min-width: 150px;
-    max-width: 500px;
     color: white;
     border-radius: 25px;
     opacity: 1;

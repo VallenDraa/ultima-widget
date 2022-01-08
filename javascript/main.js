@@ -7,6 +7,7 @@ window.addEventListener("load", function(){
     timeInteraction()
     newsInteraction()
     addTransitionToAll()
+    removeLoadingScreen()
 })
 
 // check if geolocation is allowed
@@ -84,6 +85,11 @@ const newsInteraction = function(){
             api.news.fetchNewsData(this.value)
         }
     })
+}
+const removeLoadingScreen = function(){
+    const loadingScreen = document.querySelector(".loading")
+    loadingScreen.style.animation = "dissappear 0.7s ease"
+    setTimeout(()=>{loadingScreen.style.display = "none"},700)
 }
 // refresh seconds in time
 setInterval(function(){

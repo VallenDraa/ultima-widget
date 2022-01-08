@@ -175,14 +175,15 @@ export const news= {
                     <div class ="news-content-text">
                         <h4 class="news-title">${newsArticles[i].title}</h4>
                         <a href="${newsArticles[i].link}" target="_blank" class="news-link">Read More</a>
-                        <p class="news-summary" style="text-align:justify;margin-right: 0.5rem;">${newsArticles[i].summary}</p>
+                        <p class="news-summary">${newsArticles[i].summary}</p>
                     </div>
                 </div>
             </article>  
             `
                 result += newsHTML
             }
-            document.querySelector(".inner-news").innerHTML = result            
+            document.querySelector(".inner-news").innerHTML = result         
+            document.querySelector(".inner-news").innerHTML +=("<p style=\"text-align:center; font-size: 0.6rem\"> End Of Latest News</p>")   
         }
         else{
             if(this.cityName != ""){

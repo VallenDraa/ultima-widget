@@ -22,12 +22,14 @@
     <link rel="stylesheet" href="./options_css/option-menu-assets/btn-toggle.css">
     <link rel="stylesheet" href="./misc_css/fonts.css">
     <link rel="stylesheet" href="./misc_css/loading.css">
-    <title>Ultima Widget</title>
+    <link rel="stylesheet" href="./media_query/media-query.css">
+    <title>Ultima Widget - Weather | Time | News</title>
 </head>
 <body class="scroll-bar-dark-mode" style="font-family: 'Open Sans', sans-serif ;">
-    <!-- <div class="loading">
+    <div class="loading">
         <img src="./gif/loading.gif" alt="">
-    </div> -->
+        <p>Loading <span>.</span><span>.</span><span>.</span></p>
+    </div>
     <div class="content">
         <!-- weather -->
         <section class="card-weather card">
@@ -113,7 +115,7 @@
             </div>
         </section>
         <!-- site Option section -->
-        <section class="site-option card">                
+        <section class="card-option card">                
             <h2>Widget Style</h2>
             <div class="option-inner card-inner -webkit-scrollbar-dark">
                 <!-- dark/light mode -->
@@ -169,7 +171,7 @@
                 <!-- Font Type -->
                 <div class="font-type">
                     <p>Font Family: </p>
-                    <input type="text" placeholder="Enter Font Type..." class="input-in-option input-text input-font-type" list="fontList">
+                    <input type="text" placeholder="Enter Font Type... [Open Sans]" class="input-in-option input-text input-font-type" list="fontList">
                     <datalist id="fontList">
                         <!-- content would be added in after the page is loaded, {script is in options.js} -->
                     </datalist>
@@ -177,7 +179,7 @@
             </div>
         </section>
         <!-- News Section  -->
-        <section class="news card">
+        <section class="card-news card">
             <h2>Latest News</h2>
             <div class ="inner-news -webkit-scrollbar-dark">
             </div>
