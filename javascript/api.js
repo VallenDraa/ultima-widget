@@ -144,7 +144,7 @@ export const news= {
             if(this.proceedToFetch){
                 this.cityName = city
                 const formattedCity = city.replace(" ", "%20")
-                fetch(`https://free-news.p.rapidapi.com/v1/search?q=${formattedCity}&lang=en`, {
+                return fetch(`https://free-news.p.rapidapi.com/v1/search?q=${formattedCity}&lang=en`, {
                     "method": "GET",
                     "headers": {
                         "x-rapidapi-host": "free-news.p.rapidapi.com",
