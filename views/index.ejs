@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <title>Ultima Widget - Weather | Time | News</title>
+  </head>
+  <body
+    class="scroll-bar-dark-mode"
+    style="font-family: 'Open Sans', sans-serif"
+  >
+    <div class="loading">
+      <img src="./gif/loading.gif" alt="" />
+      <p>Loading <span>.</span><span>.</span><span>.</span></p>
+    </div>
+    <div class="content">
+      <!-- weather -->
+      <section class="card-weather card">
+        <div class="search">
+          <input
+            type="text"
+            class="search-bar input-text place-searchbar"
+            placeholder="Search City or Place..."
+          />
+          <!-- <button class="search-btn"><i class="fas fa-search"></i></button> -->
+        </div>
+        <!-- weather data starts here -->
+        <div class="data">
+          <h2 class="city"></h2>
+          <h2 class="temp"></h2>
+          <img src="" alt="" class="weather-icon weather-icon-dark" />
+          <!-- tiny weather details -->
+          <div id="bottom-data-weather">
+            <div class="details">
+              <div class="more-menu">
+                <p class="weather"></p>
+                <i class="fas fa-ellipsis-v details-btn-weather"></i>
+              </div>
+              <p class="humidity"></p>
+              <p class="wind-speed"></p>
+            </div>
+          </div>
+        </div>
+        <!-- after more details button is pressed -->
+        <div class="more-details card-inner -webkit-scrollbar-dark">
+          <i class="far fa-times back-to-main-weather"></i>
+          <h2 class="other-city"></h2>
+          <div class="position">
+            <h3>Position</h3>
+            <p class="lat"></p>
+            <p class="long"></p>
+          </div>
+          <div class="temp-details">
+            <h3>Temperature</h3>
+            <p class="current-temp"></p>
+            <p class="feels"></p>
+            <p class="min"></p>
+            <p class="max"></p>
+          </div>
+          <div class="wind-details">
+            <h3>Wind</h3>
+            <p class="speed"></p>
+            <p class="deg"></p>
+          </div>
+          <div class="Others-details">
+            <h3>Others</h3>
+            <p class="vis"></p>
+            <p class="press"></p>
+            <p class="other-humid"></p>
+            <p class="country"></p>
+          </div>
+        </div>
+      </section>
+      <!-- current time -->
+      <section class="card-time card">
+        <h2>Time Data</h2>
+        <h2>Current Time</h2>
+        <h2 class="current-time"></h2>
+        <p class="date"></p>
+        <div id="bottom-data-time">
+          <div class="time-more-details">
+            <p class="timezone"></p>
+            <i class="fas fa-ellipsis-v details-btn-time"></i>
+          </div>
+          <p class="zone"></p>
+          <p class="offset"></p>
+        </div>
+        <div class="more-details-time card-inner -webkit-scrollbar-dark">
+          <i class="far fa-times back-to-main-time"></i>
+          <div class="country-detail">
+            <h3>Country</h3>
+            <p class="country-code"></p>
+            <p class="country-name"></p>
+          </div>
+          <div class="Others-details-time">
+            <h3>Others</h3>
+            <p class="dst"></p>
+            <p class="offset-detail"></p>
+            <p class="zone-start"></p>
+            <p class="timestamp"></p>
+          </div>
+        </div>
+      </section>
+      <!-- site Option section -->
+      <section class="card-option card">
+        <h2>Widget Style</h2>
+        <div class="option-inner card-inner -webkit-scrollbar-dark">
+          <!-- dark/light mode -->
+          <div class="display-style">
+            <p>Display Style:</p>
+            <div class="toggle-btn toggle-display">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+              <div class="inner-circle"></div>
+            </div>
+          </div>
+          <!-- Glass Effect -->
+          <div class="text-transparent-opt">
+            <p>Glass Effect:</p>
+            <div>
+              <div class="toggle-btn toggle-transparent text-btn">
+                <p>on</p>
+                <p>off</p>
+                <div class="inner-circle"></div>
+              </div>
+            </div>
+          </div>
+          <!-- RGB Shadow -->
+          <div class="rgb-shadow">
+            <p>RGB Shuffle:</p>
+            <section class="toggle-and-input">
+              <div class="toggle-btn toggle-rgb text-btn">
+                <p>on</p>
+                <p>off</p>
+                <div class="inner-circle"></div>
+              </div>
+              <input
+                type="text"
+                placeholder="Duration [2.5]"
+                class="input-in-option interval-input"
+                maxlength="4"
+              />
+            </section>
+          </div>
+          <!-- Outer Spacing -->
+          <div class="outer-spacing">
+            <p>Outer Spacing:</p>
+            <div class="slider">
+              <p class="slider-num">1</p>
+              <input type="range" min="1" max="5" class="opt-range" />
+              <p class="slider-num">5</p>
+            </div>
+          </div>
+          <!-- Inner Spacing -->
+          <div class="inner-spacing">
+            <p>Inner Spacing:</p>
+            <div class="slider">
+              <p class="slider-num">1</p>
+              <input type="range" min="1" max="2" class="opt-range" />
+              <p class="slider-num">2</p>
+            </div>
+          </div>
+          <!-- Font Type -->
+          <div class="font-type">
+            <p>Font Family:</p>
+            <input
+              type="text"
+              placeholder="Font [Open Sans]"
+              class="input-in-option input-text input-font-type"
+              list="fontList"
+            />
+            <datalist id="fontList">
+              <!-- content would be added in after the page is loaded, {script is in options.js} -->
+            </datalist>
+          </div>
+        </div>
+      </section>
+      <!-- News Section  -->
+      <section class="card-news card">
+        <h2>Latest News</h2>
+        <div class="inner-news -webkit-scrollbar-dark"></div>
+      </section>
+    </div>
+    <div class="footer">
+      <p>Made By Vallen With Love</p>
+    </div>
+    <script type="module" src="./javascript/main.js"></script>
+    <script type="module" src="./javascript/api.js"></script>
+    <script type="module" src="./javascript/options.js"></script>
+  </body>
+</html>

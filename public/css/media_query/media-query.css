@@ -1,0 +1,130 @@
+@media (max-width: 1200px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1.2fr 1fr;
+  }
+
+  /* for weather */
+  .card-weather {
+    order: 1;
+  }
+  .data > .temp {
+    font-size: 2.5rem;
+  }
+  .weather-icon {
+    margin-top: 1rem;
+  }
+  .place-searchbar::placeholder {
+    font-size: 1rem;
+  }
+  .card-weather > .data .details {
+    font-size: 0.85rem;
+  }
+
+  /* for time */
+  .card-time {
+    grid-column-end: span 2;
+    order: 2;
+  }
+  .card-time h2:nth-child(2) {
+    margin-top: 1.5rem;
+  }
+  .current-time {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.275rem;
+  }
+  .date {
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .zone,
+  .offset,
+  .timezone {
+    font-size: 0.85rem;
+  }
+  .more-details-time p {
+    font-weight: 300;
+    font-size: 0.85rem;
+  }
+
+  /* for option */
+  .card-option {
+    grid-column-end: span 3;
+    order: 4;
+  }
+  .toggle-btn {
+    width: 20%;
+  }
+
+  /* for news */
+  .card-news {
+    order: 3;
+  }
+  .inner-news {
+    inset: 18% 1.5% 5% 0;
+  }
+  .news-content {
+    flex-direction: column;
+  }
+  .news-title {
+    font-size: 1.2rem;
+  }
+  .news-content img {
+    width: 70%;
+    height: auto;
+    margin-right: 0rem;
+    margin-bottom: 1rem;
+  }
+  .news-summary {
+    margin-right: 0rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* for loading screen */
+  .loading {
+    height: 150%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr !important;
+  }
+
+  /* for weather */
+  .card-weather {
+    grid-column-end: span 3;
+  }
+
+  /* for time */
+  .card-time {
+    grid-column-end: span 3;
+  }
+
+  /* for option */
+  .toggle-btn {
+    width: 40%;
+  }
+  .interval-input {
+    width: 50% !important;
+  }
+
+  /* for news */
+  .inner-news {
+    inset: 18% 1.5% 5% -7%;
+  }
+  .card-news h2 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  /* for loading screen */
+  .loading {
+    height: 250%;
+  }
+}
