@@ -18,9 +18,7 @@ function checkGeolocation() {
       return;
     },
     function (error) {
-      if (error.code == error.PERMISSION_DENIED)
-        api.weather.fetchWeatherData('NEW YORK CITY');
-      api.news.fetchNewsData('New York City');
+      return;
     }
   );
 

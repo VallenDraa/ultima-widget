@@ -126,7 +126,11 @@ export const userLocation = {
       userLocation.reupdateWeatherAndNews(userCity);
     };
     //if user don't want to get their location checked
-    const error = (error) => console.log(error);
+    const error = (error) => {
+      // console.log(error);
+      weather.fetchWeatherData('New York');
+      news.fetchNewsData('New York');
+    };
 
     // get the longitude and latitude
     navigator.geolocation.getCurrentPosition(success, error);
