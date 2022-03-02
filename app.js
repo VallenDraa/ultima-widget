@@ -38,13 +38,13 @@ app.get('/position/:lat/:lon', async (req, res) => {
 });
 
 app.get('/time/:lat/:lon', async (req, res) => {
-  const key = process.env.API_TIME_KEY2;
   const lat = req.params.lat;
   const lon = req.params.lon;
 
   const data = await fetch(
-    `http://api.timezonedb.com/v2.1/get-time-zone?key=${key}&format=json&by=position&lat=${lat}&lng=${lon}`
+    `https://www.timeapi.io/api/TimeZone/coordinate?latitude=${lat}&longitude=${lon}`
   );
+  // console.log(data);
   const json = await data.json();
   const timeData = json;
 

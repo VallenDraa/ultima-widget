@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +55,8 @@
         </div>
         <!-- after more details button is pressed -->
         <div class="more-details card-inner -webkit-scrollbar-dark">
-          <i class="far fa-times back-to-main-weather"></i>
+          <i class="fa-solid fa-xmark back-to-main-weather"></i>
+
           <h2 class="other-city"></h2>
           <div class="position">
             <h3>Position</h3>
@@ -93,13 +92,11 @@
         <p class="date"></p>
         <div id="bottom-data-time">
           <div class="time-more-details">
-            <p class="timezone"></p>
-            <i class="fas fa-ellipsis-v details-btn-time"></i>
+            <p class="zone"></p>
           </div>
-          <p class="zone"></p>
-          <p class="offset"></p>
+          <p class="daylight-saving"></p>
         </div>
-        <div class="more-details-time card-inner -webkit-scrollbar-dark">
+        <!-- <div class="more-details-time card-inner -webkit-scrollbar-dark">
           <i class="far fa-times back-to-main-time"></i>
           <div class="country-detail">
             <h3>Country</h3>
@@ -113,7 +110,7 @@
             <p class="zone-start"></p>
             <p class="timestamp"></p>
           </div>
-        </div>
+        </div> -->
       </section>
       <!-- site Option section -->
       <section class="card-option card">
@@ -196,7 +193,10 @@
       </section>
     </div>
     <div class="footer">
-      <p>Made By Vallen With Love</p>
+      <p>
+        Made By Vallen With
+        <i class="fa-solid fa-heart" style="color: orangered"></i>
+      </p>
     </div>
     <script type="module" src="./javascript/main.js"></script>
     <script type="module" src="./javascript/api.js"></script>

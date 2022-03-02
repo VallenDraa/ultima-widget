@@ -1,51 +1,50 @@
-
 /* toggle button css */
 .toggle-btn {
-    height: 25px;
-    width: 30%;
-    background-color: #444444;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    outline: 1px solid rgb(8, 8, 8);
-    margin-bottom: 1rem;
-    cursor: pointer;    
-    color: black;
-    transition: 0.5s ease-in-out;
+  height: 25px;
+  width: 30%;
+  background-color: #444444;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  outline: 1px solid rgb(8, 8, 8);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: black;
+  transition: 0.5s ease-in-out;
 }
 .inner-circle {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    left: 0;
-    border-radius: 25px;
-    background-color: #232323;
-    transition:0.5s ease-in-out;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  border-radius: 25px;
+  background-color: #232323;
+  transition: 0.5s ease-in-out;
 }
-.move-inner-circle{
-    transform: translate(100%);
+.move-inner-circle {
+  transform: translate(100%);
 }
-.fas{
-    transition: 0.5s ease-in-out;
-    color: white;
+.fas {
+  transition: 0.5s ease-in-out;
+  color: white;
 }
 
 /* button inner text glass effect */
-.text-btn > p{
-    font-size: 0.6rem;
-    font-weight: 500;
-    color: white;
-    transition:0.5s ease-in-out;
+.text-btn > p {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: white;
+  transition: 0.5s ease-in-out;
 }
-.toggle-rgb{
-    margin-bottom: 0rem !important;
-    align-self: center;
+.toggle-rgb {
+  margin-bottom: 0rem !important;
+  align-self: center;
 }
 
-.toggle-and-input{
-    display:flex;
-    margin-bottom: 1rem;
-    justify-content: space-between;
+.toggle-and-input {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
 }

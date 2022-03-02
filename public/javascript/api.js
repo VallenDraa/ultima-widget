@@ -155,44 +155,25 @@ export const times = {
   },
 
   assignTimeData: function (timeData) {
-    const {
-      countryCode,
-      countryName,
-      zoneName,
-      abbreviation,
-      gmtOffset,
-      dst,
-      zoneStart,
-      timestamp,
-      formatted,
-    } = timeData;
-    const dateAndTime = formatted.split(' ');
-    // console.log(countryCode,countryName,zoneName,abbreviation,gmtOffset,dst,zoneStart,timestamp,formatted,dateAndTime)
+    let { timeZone, currentLocalTime, hasDayLightSaving } = timeData;
+    currentLocalTime = currentLocalTime.split('T');
+    currentLocalTime[1] = this.formatTime(currentLocalTime[1]);
+
     this.updateTimeUI(
-      dateAndTime[1],
-      dateAndTime[0],
-      abbreviation,
-      zoneName,
-      gmtOffset
-    );
-    this.updateTimeDetailUI(
-      countryCode,
-      countryName,
-      dst,
-      gmtOffset,
-      zoneStart,
-      timestamp
+      currentLocalTime[1],
+      currentLocalTime[0],
+      timeZone,
+      hasDayLightSaving
     );
   },
 
-  updateTimeUI: function (time, date, abbreviation, zoneName, gmtOffset) {
+  updateTimeUI: function (time, date, zoneName, daylightSaving) {
     document.querySelector('.current-time').textContent = time;
     document.querySelector('.date').textContent = date;
-    document.querySelector(
-      '.timezone'
-    ).textContent = `Timezone: ${abbreviation}`;
     document.querySelector('.zone').textContent = `Area Zone: ${zoneName}`;
-    document.querySelector('.offset').textContent = `GMT Offset: ${gmtOffset}`;
+    document.querySelector(
+      '.daylight-saving'
+    ).textContent = `Day Light Saving: ${daylightSaving}`;
   },
 
   updateTimeDetailUI: function (
@@ -219,6 +200,12 @@ export const times = {
     document.querySelector(
       '.timestamp'
     ).textContent = `Timestamp: ${timestamp}`;
+  },
+  formatTime: function (time) {
+    time = time.split(':');
+    time[2] = ('0' + Math.round(time[2]).toString()).slice(-2);
+    time = time.join(':');
+    return time;
   },
 };
 

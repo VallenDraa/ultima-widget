@@ -1,8 +1,8 @@
 @media (max-width: 1200px) {
   .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1.6fr 1fr !important;
   }
 
   /* for weather */
@@ -41,7 +41,7 @@
     font-weight: 300;
   }
   .zone,
-  .offset,
+  .daylight-saving,
   .timezone {
     font-size: 0.85rem;
   }
@@ -56,7 +56,7 @@
     order: 4;
   }
   .toggle-btn {
-    width: 20%;
+    max-width: 100px;
   }
 
   /* for news */
@@ -96,7 +96,6 @@
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: 1fr 1fr 1fr 1fr !important;
   }
-
   /* for weather */
   .card-weather {
     grid-column-end: span 3;
@@ -109,7 +108,7 @@
 
   /* for option */
   .toggle-btn {
-    width: 40%;
+    max-width: 80px;
   }
   .interval-input {
     width: 50% !important;
@@ -117,7 +116,7 @@
 
   /* for news */
   .inner-news {
-    inset: 18% 1.5% 5% -7%;
+    inset: 18% 1.5% 5% -5%;
   }
   .card-news h2 {
     text-align: center;

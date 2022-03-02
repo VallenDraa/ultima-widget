@@ -1,5 +1,6 @@
 import * as api from './api.js';
-
+window.scrollTo(0, 0);
+document.body.style.overflowY = 'hidden';
 // on load get user data and update weather based on user input
 window.addEventListener('load', function () {
   checkGeolocation();
@@ -77,34 +78,32 @@ const weatherInteraction = function () {
 };
 const timeInteraction = function () {
   // more details time details button
-  document
-    .querySelector('#bottom-data-time')
-    .addEventListener('mouseover', function () {
-      document
-        .querySelector('.details-btn-time')
-        .setAttribute('style', 'opacity:1');
-    });
-  document
-    .querySelector('#bottom-data-time')
-    .addEventListener('mouseleave', function () {
-      document
-        .querySelector('.details-btn-time')
-        .setAttribute('style', 'opacity:0');
-    });
-
-  const moreDetailTime = document.querySelector('.more-details-time');
-  document
-    .querySelector('.details-btn-time')
-    .addEventListener('click', function () {
-      moreDetailTime.classList.toggle('make-visible-more-details');
-    });
-
+  // document
+  //   .querySelector('#bottom-data-time')
+  //   .addEventListener('mouseover', function () {
+  //     document
+  //       .querySelector('.details-btn-time')
+  //       .setAttribute('style', 'opacity:1');
+  //   });
+  // document
+  //   .querySelector('#bottom-data-time')
+  //   .addEventListener('mouseleave', function () {
+  //     document
+  //       .querySelector('.details-btn-time')
+  //       .setAttribute('style', 'opacity:0');
+  //   });
+  // const moreDetailTime = document.querySelector('.more-details-time');
+  // document
+  //   .querySelector('.details-btn-time')
+  //   .addEventListener('click', function () {
+  //     moreDetailTime.classList.toggle('make-visible-more-details');
+  //   });
   // close more time details menu buttons
-  document
-    .querySelector('.back-to-main-time')
-    .addEventListener('click', function () {
-      moreDetailTime.classList.toggle('make-visible-more-details');
-    });
+  // document
+  //   .querySelector('.back-to-main-time')
+  //   .addEventListener('click', function () {
+  //     moreDetailTime.classList.toggle('make-visible-more-details');
+  //   });
 };
 const newsInteraction = function () {
   document.querySelector('.search-bar').addEventListener('change', function () {
@@ -124,12 +123,13 @@ const removeLoadingScreen = function () {
   setTimeout(() => {
     loadingScreen.style.display = 'none';
   }, 700);
+  document.body.style.overflowY = 'auto';
 };
 // refresh seconds in time
 setInterval(function () {
   if (api.errorList.error_429) return;
   api.times.fetchTimeData(api.weather.latLong[0], api.weather.latLong[1]);
-}, 1050);
+}, 1000);
 
 // misc
 function addTransitionToAll() {
